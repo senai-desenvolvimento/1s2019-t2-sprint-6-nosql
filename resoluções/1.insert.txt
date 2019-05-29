@@ -1,0 +1,12 @@
+db.tasks.insert({
+	"titulo" : "Titulo Z",
+	"descricao" : "javascript top"
+})
+
+db.tasks.insertMany({
+	"titulo" : "Titulo I"
+}
+,
+{
+	"titulo" : "Várzea"
+})
