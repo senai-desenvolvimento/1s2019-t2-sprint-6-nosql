@@ -1,0 +1,17 @@
+1.	Selecione todos os registros em que as descrições contenham em qualquer parte da palavra, 'js'.
+db.tasks.find({ "descricao" : /js/ }).pretty()
+
+2.	Selecione todos os registros em que as descrições terminem com a letra 't'.
+db.tasks.find({ "descricao" : /t$/ }).pretty()
+
+3.	Selecione todos os registros em que as descrições terminem com a letra 'l'.
+db.tasks.find({ "descricao" : /l$/ }).pretty()
+
+4.	Selecione todos os registros em que as descrições terminem com a letra 't' ou 'l'.
+db.tasks.find({ "descricao" : { $in : [ /t$/, /l$/ ] } }).pretty()
+
+5.	Selecione todos os registros em que as descrições comecem com a letra 'b'.
+db.tasks.find({ "descricao" : /^b/ }).pretty()
+
+6.	Selecione todos os registros em que as descrições comecem com a letra 'j' ou 'h'.
+db.tasks.find({ "descricao" : { $in : [ /^j/, /^h/ ] } }).pretty()
