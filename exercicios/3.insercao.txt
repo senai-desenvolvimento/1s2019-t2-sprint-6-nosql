@@ -12,7 +12,7 @@ Descrição = Firebase
 
 Titulo = Titulo Y
 Descrição = Microsoft
-Titulo = Titulo R
 
+Titulo = Titulo R
 Descrição = Oracle
 Data de Inclusão = data de hoje
