@@ -73,7 +73,7 @@ export default class EventosIndex extends Component {
                         this.state.listaEventos.map((evento, key) => {
                             return (
                                 <li key={key}>
-                                    {evento.id} - {evento.titulo} - {evento.descricao} - {evento.data} - {evento.acessoLivre}
+                                    {evento.id} - {evento.titulo} - {evento.descricao} - {evento.data} - {evento.acessoLivre.toString()}
                                 </li>
                             )
                         })
