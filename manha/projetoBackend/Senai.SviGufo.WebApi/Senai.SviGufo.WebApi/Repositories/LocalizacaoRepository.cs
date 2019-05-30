@@ -12,7 +12,9 @@ namespace Senai.SviGufo.WebApi.Repositories
 
         public LocalizacaoRepository()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
+            // var client = new MongoClient("mongodb://localhost:27017");
+            var client = new MongoClient("mongodb://svigufom:svi132@ds263816.mlab.com:63816/svigufom");
+        
             var database = client.GetDatabase("svigufom");
             _localizacoes = database.GetCollection<LocalizacaoDomain>("mapas");
         }
