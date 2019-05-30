@@ -40,3 +40,17 @@ C:\_github\1s2019-t2-sprint-2-backend\manha\Senai.SviGufo.WebApi\Senai.SviGufo.W
 C:\_github\1s2019-t2-sprint-2-backend\manha\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.RazorTargetAssemblyInfo.cache
 C:\_github\1s2019-t2-sprint-2-backend\manha\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.dll
 C:\_github\1s2019-t2-sprint-2-backend\manha\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.pdb
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\bin\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.deps.json
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\bin\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.runtimeconfig.json
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\bin\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.runtimeconfig.dev.json
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\bin\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.dll
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\bin\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.pdb
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.csprojAssemblyReference.cache
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.csproj.CoreCompileInputs.cache
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.RazorAssemblyInfo.cache
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.RazorAssemblyInfo.cs
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.AssemblyInfoInputs.cache
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.AssemblyInfo.cs
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.RazorTargetAssemblyInfo.cache
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.dll
+C:\_github\1s2019-t2-sprint-6-nosql\manha\projetoBackend\Senai.SviGufo.WebApi\Senai.SviGufo.WebApi\obj\Debug\netcoreapp2.1\Senai.SviGufo.WebApi.pdb
