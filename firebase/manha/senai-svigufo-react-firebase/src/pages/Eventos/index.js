@@ -12,7 +12,8 @@ export default class EventosIndex extends Component {
             data : '',
             hora : '',
             acessoLivre : false,
-            ativo : false
+            ativo : false,
+            idEvento : 0
         }
     }
 
@@ -69,23 +70,72 @@ export default class EventosIndex extends Component {
                 });
             })
 
-            
+
     }
 
     cadastraEvento(event){
         event.preventDefault();
         
-        firebase.firestore().collection("Eventos").add({
-            titulo : this.state.titulo,
-            descricao : this.state.descricao,
-            data :  firebase.firestore.Timestamp.fromDate(new Date(this.state.data + " " + this.state.hora)),
-            acessoLivre : Boolean(this.state.acessoLivre),
-            ativo : Boolean(this.state.ativo)
-        }).then((resultado) =>{
-            alert("Evento Cadastrado")
-        }).catch((erro) =>{
-            console.log('tag', erro)
+        if(this.state.idEvento === 0){
+            firebase.firestore().collection("Eventos").add({
+                titulo : this.state.titulo,
+                descricao : this.state.descricao,
+                data :  firebase.firestore.Timestamp.fromDate(new Date(this.state.data + " " + this.state.hora)),
+                acessoLivre : Boolean(this.state.acessoLivre),
+                ativo : Boolean(this.state.ativo)
+            }).then((resultado) =>{
+                alert("Evento Cadastrado")
+                this.limparFormulario();
+            }).catch((erro) =>{
+                console.log('tag', erro)
+            })
+        } else {
+            firebase.firestore().collection("Eventos")
+                .doc(this.state.idEvento)
+                .set({
+                    titulo : this.state.titulo,
+                    descricao : this.state.descricao,
+                    data :  firebase.firestore.Timestamp.fromDate(new Date(this.state.data + " " + this.state.hora)),
+                    acessoLivre : Boolean(this.state.acessoLivre),
+                    ativo : Boolean(this.state.ativo)
+                }).then((resultado) =>{
+                    alert("Evento Alterado")
+                    this.limparFormulario();
+                }).catch((erro) =>{
+                    console.log('tag', erro)
+                })
+        }
+    }
+
+    limparFormulario(){
+        this.setState({
+            idEvento : 0,
+            titulo : '',
+            descricao : '',
+            ativo : false,
+            acessoLivre : false,
+            data : '',
+            hora : ''
         })
+    }
+
+    buscarPorId(event){
+        event.preventDefault();
+
+        firebase.firestore().collection("Eventos")
+            .doc(event.target.id)
+            .get()
+            .then((evento) =>{
+                this.setState({
+                    idEvento : evento.id,
+                    titulo : evento.data().titulo,
+                    descricao : evento.data().descricao,
+                    ativo : Boolean(evento.data().ativo),
+                    acessoLivre : Boolean(evento.data().acessoLivre),
+                    data : evento.data().data.toDate().toISOString().split("T")[0],
+                    hora : evento.data().data.toDate().toTimeString().slice(0,5)
+                })
+            })
     }
 
     componentDidMount(){
@@ -101,7 +151,7 @@ export default class EventosIndex extends Component {
                         this.state.listaEventos.map((evento, key) => {
                             return (
                                 <li key={key}>
-                                    {evento.id} - {evento.titulo} - {evento.descricao} - {evento.data} -  {evento.acessoLivre.toString()}
+                                    {evento.id} - {evento.titulo} - {evento.descricao} - {evento.data} -  {evento.acessoLivre.toString()} - <button id={evento.id} onClick={this.buscarPorId.bind(this)}>Editar</button>
                                 </li>
                             )
                         })
@@ -120,11 +170,11 @@ export default class EventosIndex extends Component {
                     </div>
                     <div>
                         <label>Acesso Livre</label>
-                        <input type="checkbox" name="acessoLivre" value={this.state.acessoLivre} onChange={this.atualizaEstado.bind(this)} required />
+                        <input type="checkbox" name="acessoLivre" checked={this.state.acessoLivre} value={this.state.acessoLivre} onChange={this.atualizaEstado.bind(this)}  />
                     </div>
                     <div>
                         <label>Ativo</label>
-                        <input type="checkbox" name="ativo" value={this.state.ativo} onChange={this.atualizaEstado.bind(this)} required />
+                        <input type="checkbox" checked={this.state.ativo} name="ativo" value={this.state.ativo} onChange={this.atualizaEstado.bind(this)}  />
                     </div>
                     <div>
                         <label>Data</label>
