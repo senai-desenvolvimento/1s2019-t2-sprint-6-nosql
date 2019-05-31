@@ -68,6 +68,8 @@ export default class EventosIndex extends Component {
                     console.log(this.state.listaEventos)
                 });
             })
+
+            
     }
 
     cadastraEvento(event){
