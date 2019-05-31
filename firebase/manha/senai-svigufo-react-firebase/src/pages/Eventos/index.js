@@ -138,6 +138,40 @@ export default class EventosIndex extends Component {
             })
     }
 
+    excluirPorId(event){
+        event.preventDefault();
+
+        if(window.confirm("Deseja realmente excluir o evento. Tem certeza, não poderá retornar")){
+            firebase.firestore().collection("Eventos")
+            .doc(event.target.id)
+            .delete()
+            .then((resultado) =>{
+                alert("Evento excluido!");
+            })
+        }
+    }
+
+    excluirTodos(event){
+        event.preventDefault();
+
+        if(window.confirm("Deseja realmente excluir todos os eventos. Tem certeza, não poderá retornar")){
+            this.state.listaEventos.map((evento) =>{
+
+                firebase.firestore().collection("Eventos")
+                .doc(evento.id)
+                .delete()
+                .then((resultado) =>{
+                    
+                })
+
+            })
+
+            alert("Evento excluido!");
+        }
+
+
+    }
+
     componentDidMount(){
         this.listarEventosRealTime();
     }
@@ -146,12 +180,14 @@ export default class EventosIndex extends Component {
         return (
             <div>
                 <h3>Eventos - Index</h3>
+                <button onClick={this.excluirTodos.bind(this)}>Excluir Todos</button>
                 <ul>
                     {
                         this.state.listaEventos.map((evento, key) => {
                             return (
                                 <li key={key}>
                                     {evento.id} - {evento.titulo} - {evento.descricao} - {evento.data} -  {evento.acessoLivre.toString()} - <button id={evento.id} onClick={this.buscarPorId.bind(this)}>Editar</button>
+                                    - <button id={evento.id} onClick={this.excluirPorId.bind(this)}>Excluir</button>
                                 </li>
                             )
                         })
@@ -159,7 +195,7 @@ export default class EventosIndex extends Component {
                 </ul>
 
                 <h2>Eventos - Cadastrar</h2>
-                <form onSubmit={this.cadastraEvento.bind(this)}>
+                <form onSubmit={this.cadastraEvento.bind(this)} noValidate>
                     <div>
                         <label>Título</label>
                         <input type="text" name="titulo" value={this.state.titulo} onChange={this.atualizaEstado.bind(this)} required />
