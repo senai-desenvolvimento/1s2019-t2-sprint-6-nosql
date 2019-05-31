@@ -7,9 +7,17 @@ export default class EventosIndex extends Component{
         super();
 
         this.state ={
-            listaEventos : []
+            listaEventos : [],
+            titulo : '',
+            descricao : '',
+            data : '',
+            hora : '',
+            acessoLivre : false,
+            ativo : false
         }
     }
+
+
 
     listarEventosRealTime(){
         firebase.firestore().collection("eventos")
@@ -63,6 +71,39 @@ export default class EventosIndex extends Component{
         this.listarEventosRealTime();
     }
 
+    atualizaEstado(event){
+        this.setState({[event.target.name] : event.target.value});
+    }
+
+    salvarEvento(event){
+        event.preventDefault();
+        
+        firebase.firestore().collection("eventos")
+            .add({
+                data : firebase.firestore.Timestamp.fromDate(new Date(this.state.data + " " + this.state.hora)),
+                titulo : this.state.titulo,
+                descricao : this.state.descricao,
+                ativo : Boolean(this.state.ativo),
+                acessoLivre : Boolean(this.state.acessoLivre)
+            }).then(() => {
+                alert("Evento Cadastrado")
+                this.limparFormulario();
+            }).catch((erro) => {
+                console.log('erro', erro);
+            })
+    }
+
+    limparFormulario(){
+        this.setState({
+            data : '',
+            hora : '',
+            titulo : '',
+            descricao : '',
+            ativo : false,
+            acessoLivre : false
+        })
+    }
+
     render(){
         return(
             <div>
@@ -74,6 +115,35 @@ export default class EventosIndex extends Component{
                     })   
                 }
                 </ul>
+
+                <h2>Eventos - Cadastrar</h2>
+                <form onSubmit={this.salvarEvento.bind(this)} >
+                    <div>
+                        <label>Título</label>
+                        <input type="text" name="titulo" value={this.state.titulo} onChange={this.atualizaEstado.bind(this)}  />
+                    </div>
+                    <div>
+                        <label>Descrição</label>
+                        <input type="text" name="descricao" value={this.state.descricao} onChange={this.atualizaEstado.bind(this)}  />
+                    </div>
+                    <div>
+                        <label>Acesso Livre</label>
+                        <input type="checkbox" name="acessoLivre" defaultValue={this.state.acessoLivre}  onChange={this.atualizaEstado.bind(this)}  />
+                    </div>
+                    <div>
+                        <label>Ativo</label>
+                        <input type="checkbox" defaultValue={this.state.ativo} name="ativo" onChange={this.atualizaEstado.bind(this)}  />
+                    </div>
+                    <div>
+                        <label>Data</label>
+                        <input type="date" name="data" value={this.state.data} onChange={this.atualizaEstado.bind(this)}  />
+                    </div>
+                    <div>
+                        <label>Hora</label>
+                        <input type="time" name="hora" value={this.state.hora} onChange={this.atualizaEstado.bind(this)}  />
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
         )
     }
