@@ -206,11 +206,11 @@ export default class EventosIndex extends Component {
                     </div>
                     <div>
                         <label>Acesso Livre</label>
-                        <input type="checkbox" name="acessoLivre" checked={this.state.acessoLivre} value={this.state.acessoLivre} onChange={this.atualizaEstado.bind(this)}  />
+                        <input type="checkbox" name="acessoLivre" defaultChecked={this.state.acessoLivre} value={this.state.acessoLivre} onChange={this.atualizaEstado.bind(this)}  />
                     </div>
                     <div>
                         <label>Ativo</label>
-                        <input type="checkbox" checked={this.state.ativo} name="ativo" value={this.state.ativo} onChange={this.atualizaEstado.bind(this)}  />
+                        <input type="checkbox" defaultChecked={this.state.ativo} name="ativo" value={this.state.ativo} onChange={this.atualizaEstado.bind(this)}  />
                     </div>
                     <div>
                         <label>Data</label>
